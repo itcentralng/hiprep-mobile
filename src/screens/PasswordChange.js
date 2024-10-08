@@ -9,7 +9,7 @@ function PasswordChange() {
   const { theme } = useTheme();
   const navigation = useNavigation()
 
-  // States to manage visibility for each password field
+  
   const [isCurrentPasswordVisible, setCurrentPasswordVisible] = useState(false);
   const [isNewPasswordVisible, setNewPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
@@ -19,55 +19,55 @@ function PasswordChange() {
       <View style={styles.formContainer}>
         <Text style={[styles.formHeader, { fontFamily: theme.fonts.bold, color: theme.colors.text }]}>Change Password</Text>
         
-        {/* Current Password */}
+        {}
         <Text style={[styles.label, { fontFamily: theme.fonts.regular }]}>Current Password</Text>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
             placeholder="Enter your current password"
-            secureTextEntry={!isCurrentPasswordVisible} // Toggle visibility
+            secureTextEntry={!isCurrentPasswordVisible} 
           />
           <TouchableOpacity
             style={styles.iconContainer}
-            onPress={() => setCurrentPasswordVisible(!isCurrentPasswordVisible)} // Toggle state
+            onPress={() => setCurrentPasswordVisible(!isCurrentPasswordVisible)} 
           >
             <MaterialIcons name={isCurrentPasswordVisible ? "visibility" : "visibility-off"} size={24} color="#E7F0F3" />
           </TouchableOpacity>
         </View>
         
-        {/* New Password */}
+        {}
         <Text style={[styles.label, { fontFamily: theme.fonts.regular }]}>New Password</Text>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
             placeholder="Enter your new password"
-            secureTextEntry={!isNewPasswordVisible} // Toggle visibility
+            secureTextEntry={!isNewPasswordVisible} 
           />
           <TouchableOpacity
             style={styles.iconContainer}
-            onPress={() => setNewPasswordVisible(!isNewPasswordVisible)} // Toggle state
+            onPress={() => setNewPasswordVisible(!isNewPasswordVisible)} 
           >
             <MaterialIcons name={isNewPasswordVisible ? "visibility" : "visibility-off"} size={24} color="#E7F0F3" />
           </TouchableOpacity>
         </View>
         
-        {/* Confirm New Password */}
+        {}
         <Text style={[styles.label, { fontFamily: theme.fonts.regular }]}>Confirm New Password</Text>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
             placeholder="Enter your new password"
-            secureTextEntry={!isConfirmPasswordVisible} // Toggle visibility
+            secureTextEntry={!isConfirmPasswordVisible} 
           />
           <TouchableOpacity
             style={styles.iconContainer}
-            onPress={() => setConfirmPasswordVisible(!isConfirmPasswordVisible)} // Toggle state
+            onPress={() => setConfirmPasswordVisible(!isConfirmPasswordVisible)} 
           >
             <MaterialIcons name={isConfirmPasswordVisible ? "visibility" : "visibility-off"} size={24} color="#E7F0F3" />
           </TouchableOpacity>
         </View>
 
-        {/* Change Password Button */}
+        {}
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => navigation.navigate('OTP')}
