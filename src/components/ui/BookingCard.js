@@ -2,10 +2,41 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { useTheme } from '../../theme/ThemeProvider'
 import { MaterialIcons } from '@expo/vector-icons';
+import { ButtonGroup } from 'react-native-elements';
 
 
 function BookingCard({name, date, day, time, subject, progress}) {
     const {theme} = useTheme();
+
+  const getProgressStyles = () => {
+    switch (progress) {
+      case 'Completed':
+        return {
+          backgroundColor: "#D9F9E6",
+          borderColor: "#B8F1D2",
+          color: "#2F9461"
+        }
+    case 'Active':
+      return {
+        backgroundColor: "#F3F7F9",
+        borderColor: "#CFE1E6",
+        color: "#0E6883"
+      }
+      case 'Canceled':
+        return {
+          backgroundColor: "#FBF2CB",
+          borderColor: "#FDE57E",
+          color: "#C8811A"
+        }
+        default:
+          return {
+            backgroundColor: "#D9F9E6",
+            borderColor: "#B8F1D2",
+            color: "#2F9461"
+          }
+    } 
+  }
+
   return (
     <View style={styles.container}>
         <View style={styles.top}>
@@ -34,9 +65,14 @@ function BookingCard({name, date, day, time, subject, progress}) {
       </View>
       </View>
 
-      <View style={styles.progressContainer}>
-        <Text style={[styles.progressText, {fontFamily: theme.fonts.bold}]}>{progress}</Text>
-      </View>
+      <View style={[styles.progressContainer, {backgroundColor: getProgressStyles().backgroundColor, borderColor: getProgressStyles().borderColor}]}>
+      <Text style={[
+                        styles.progressText,
+                        { color: getProgressStyles().color, fontFamily: theme.fonts.bold }
+                    ]}>
+                        {progress}
+                    </Text>
+                          </View>
       </View>
 
     </View>

@@ -4,6 +4,8 @@ import { useTheme } from '../theme/ThemeProvider';
 import TutorProfileCard from '../components/ui/TutorProfileCard';
 import { MaterialIcons } from '@expo/vector-icons';
 import EducationCard from '../components/ui/EducationCard';
+import { Image } from 'react-native';
+import { WebView } from 'react-native-webview';
 
 const Overview = () => {
   const {theme} = useTheme();
@@ -50,25 +52,75 @@ const Overview = () => {
   )
 };
 
-const Reviews = () => (
-  <View>
-    <Text style={styles.sectionText}>This is the Reviews section</Text>
-    {/* Add more content here for Reviews */}
-  </View>
-);
+const Reviews = () => {
+  const {theme} = useTheme();
 
-const Preview = () => (
+  const reviews  = [
+    {
+      id: 1,
+      profileImage: require("../../assets/Image.png"),
+      name: "Cheyenne Rhiel Madsen",
+      date: "1 week ago",
+      reviewText: "I appreciate the precise short videos (10 mins or less each) because overly long videos tend to make me lose focus. The instructor is very knowledgeable in Web Design and it shows as he shares his knowledge. These were my best 6 months of training. Thanks, Vako."
+    },
+    {
+      id: 2,
+      profileImage: require("../../assets/Image.png"),
+      name: "Cheyenne Rhiel Madsen",
+      date: "1 week ago",
+      reviewText: "I appreciate the precise short videos (10 mins or less each) because overly long videos tend to make me lose focus. The instructor is very knowledgeable in Web Design and it shows as he shares his knowledge. These were my best 6 months of training. Thanks, Vako."
+    },
+  ]
+
+  return (
+
   <View>
-    <Text style={styles.sectionText}>This is the Preview section</Text>
-    {/* Add more content here for Preview */}
+    <Text style={[styles.sectionTitle, {fontFamily: theme.fonts.bold}]}>Studnet's Reviews</Text>
+    {reviews.map((review, index) => (
+      <View key={index}>
+    <View style={styles.top}>
+      <Image source={review.profileImage} />
+      <View style={styles.studentDetails}>
+        <Text style={[styles.name, {fontFamily: theme.fonts.bold}]}>{review.name}</Text>
+        <View style={styles.iconContainer}>
+        <MaterialIcons name="star" size={20} color="#FD8E1F" />
+        <MaterialIcons name="star" size={20} color="#FD8E1F" />
+        <MaterialIcons name="star" size={20} color="#FD8E1F" />
+        <MaterialIcons name="star" size={20} color="#FD8E1F" />
+        <MaterialIcons name="star" size={20} color="#FD8E1F" />
+        </View>
+      </View>
+      <Text style={[styles.date, {fontFamily: theme.fonts.regular, color: theme.colors.secondary}]}>{review.date}</Text>
+    </View>
+    <View style={styles.reviewContainer}>
+      <Text style={[styles.reviewText, {fontFamily: theme.fonts.regular, color: theme.colors.secondary}]}>{review.reviewText}</Text>
+    </View>
+    </View>
+    ))}
   </View>
 );
+}
+
+const Preview = () => {
+  const {theme} = useTheme();
+  return (
+    <View style={styles.previewContainer}>
+          <Text style={[styles.sectionTitle, {fontFamily: theme.fonts.bold, marginBottom: 20}]}>Tutor's Reviews</Text>
+      <WebView
+        style={styles.video}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        source={{ uri: 'https://youtu.be/Jd5_KjkyljY?autoplay=0' }}
+      />
+    </View>
+  );
+};
 
 function TabNavigator() {
   
   const [activeSection, setActiveSection] = useState('Overview');
 
-  // Function to switch between sections
+  
   const renderSection = () => {
     switch (activeSection) {
       case 'Overview':
@@ -85,7 +137,7 @@ function TabNavigator() {
   const {theme} = useTheme();
   return (
     <View>
-      {/* Render the tab labels */}
+      
       <View style={styles.tabContainer}>
         <TouchableOpacity onPress={() => setActiveSection('Overview')}>
           <Text style={[styles.tabLabel, activeSection === 'Overview' && styles.activeTab, {fontFamily: theme.fonts.bold}]}>OVERVIEW</Text>
@@ -98,7 +150,7 @@ function TabNavigator() {
         </TouchableOpacity>
       </View>
 
-      {/* Render the active section's content */}
+      
       <View style={styles.sectionContainer}>
         {renderSection()}
       </View>
@@ -166,7 +218,47 @@ const styles = StyleSheet.create({
     fontSize: 16,
     padding: 5,
     borderRadius: 5
-  }
+  },
+  sectionTitle: {
+    fontSize: 16
+  },
+  top: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginTop: 20
+  },
+  name: {
+    fontSize: 14
+  },
+  iconContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  date: {
+    fontSize: 12
+  },
+  reviewContainer: {
+    marginVertical: 12
+  },
+  reviewText: {
+    fontSize: 14
+  },
+  previewContainer: {
+    flex: 1,
+  },
+  sectionText: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+  video: {
+    height: 200, 
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  
 });
 
 export default TabNavigator;

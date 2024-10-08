@@ -5,6 +5,8 @@ import TutorProfileCard from '../components/ui/TutorProfileCard';
 import { MaterialIcons } from '@expo/vector-icons';
 import EducationCard from '../components/ui/EducationCard';
 import BookingCard from './ui/BookingCard';
+import NotFound from './NotFound';
+import PaymentHistory from './PaymentHistory';
 
 const Overview = () => {
   const {theme} = useTheme();
@@ -16,18 +18,24 @@ const Overview = () => {
     </View>
     <BookingCard name="James" date="1st - 31st Dec. 2023" day="Friday" time="11:00am - 1:00pm" subject="Basic Science" progress="Completed" />
     <BookingCard name="Maria" date="1st - 30th Nov. 2023" day="Sunday" time="11:00am - 1:00pm" subject="Mathematics" progress="Active" />
-    <BookingCard name="Rayna" date="1st - 31st Aug. 2023" day="Monday" time="11:00am - 1:00pm" subject="English Language" progress="Cancelled" />
+    <BookingCard name="Rayna" date="1st - 31st Aug. 2023" day="Monday" time="11:00am - 1:00pm" subject="English Language" progress="Canceled" />
     <BookingCard name="Kianna" date="1st - 30th Jun. 2023" day="Monday" time="11:00am - 1:00pm" subject="Mathematics" progress="Completed" />
   </View>
   )
 };
 
-const Reviews = () => (
+const Reviews = () => {
+  const {theme} = useTheme()
+  return (
   <View>
-    <Text style={styles.sectionText}>This is the Reviews section</Text>
-    {/* Add more content here for Reviews */}
+    {/* <NotFound /> */}
+    <View style={[styles.headerContainer, {backgroundColor: theme.colors.primary}]}>
+      <Text style={[styles.headerText, {fontFamily: theme.fonts.bold}]}>Payments</Text>
+    </View>
+    <PaymentHistory />
   </View>
-);
+)
+};
 
 
 function BookingNavigator() {

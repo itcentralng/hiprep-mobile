@@ -3,10 +3,10 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Navbar from '../components/Navbar';
 import TextInput from '../components/ui/TextInputs';
 import Button from '../components/ui/Button';
-import { useTheme } from '../theme/ThemeProvider'; // Import the useTheme hook
+import { useTheme } from '../theme/ThemeProvider'; 
 
 function LoginScreen({ navigation }) {
-  const { theme } = useTheme(); // Get the current theme
+  const { theme } = useTheme(); 
 
   return (
     <View style={[styles.screen, { backgroundColor: theme.colors.background }]}>

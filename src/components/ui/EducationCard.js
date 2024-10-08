@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import { MaterialIcons } from '@expo/vector-icons'; // Import the icon
+import { MaterialIcons } from '@expo/vector-icons';
 import { useTheme } from '../../theme/ThemeProvider';
 
 

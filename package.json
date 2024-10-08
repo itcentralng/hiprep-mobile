@@ -1,7 +1,7 @@
 {
   "name": "hiprep",
   "version": "1.0.0",
-  "main": "expo/AppEntry.js",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -23,11 +23,14 @@
     "react-native-elements": "^3.4.3",
     "react-native-modal-datetime-picker": "^18.0.0",
     "react-native-picker-select": "^9.3.1",
-    "react-native-safe-area-context": "4.10.5",
-    "react-native-screens": "3.31.1"
+    "react-native-safe-area-context": "^4.10.5",
+    "react-native-screens": "^3.31.1",
+    "react-native-svg": "^15.7.1",
+    "react-native-webview": "13.8.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.0"
+    "@babel/core": "^7.24.0",
+    "react-native-svg-transformer": "^1.5.0"
   },
   "private": true
 }

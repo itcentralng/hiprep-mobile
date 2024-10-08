@@ -1,58 +1,47 @@
 import React from 'react'
 import TutorProfileScreen from "./Tutor/TutorProfileScreen"
-import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native'
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import Navbar from '../components/Navbar'
 import OutlinedButton from '../components/ui/OutlinedButton'
 import ButtonSmall from '../components/ui/ButtonSmall'
 import TutorCard from '../components/TutorCard'
+import { useTheme } from '../theme/ThemeProvider'
+import ParentProfileCard from '../components/ParentProfileCard'
+import EditCard from '../components/ui/EditCard'
+import { useNavigation } from '@react-navigation/native'
 
 function AccountScreen() {
+  const {theme} = useTheme();
+  const {navigation} = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
         <ScrollView>
       <Navbar />
-      <View style={styles.buttonContainerWrapper}>
-        <View style={styles.buttonContainer}>
-            <OutlinedButton title="Booking Summary" />
-            <ButtonSmall title="I'd prefer to pick myself" />
+        <View style={styles.bodyContainer}>
+          <Text style={[styles.headerText, {fontFamily: theme.fonts.bold}]}>My Account</Text>
+          <ParentProfileCard />
+          <EditCard icon="mail-outline" header="Update Email Address" text="Change Current Email Address" buttonText="Update Email" />
+          <EditCard icon="lock-outline" header="Change Password" text="Change your current password." buttonText="Change Password" />
         </View>
-      </View>
-      <View style={styles.tutorCardContainer}>
-        <TutorCard />
-      </View>
       </ScrollView>
     </SafeAreaView>
   )
 }
+
 
 const styles = StyleSheet.create({
   container: {
     width: "100%",
     flex: 1,
     alignItems: "center",
-},
-buttonContainer: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingVertical: 10,
-    paddingHorizontal: 20
-},
-buttonContainerWrapper: {
-    display: "flex",
-alignItems: "center",
-backgroundColor: '#FFF7FA',
-height: 156
-},
-tutorCardContainer: {
-  width: "100%",
-  display: "flex",
-  flex: 1,
-  alignItems: "center",
-  justifyContent: "center",
-}
+  },
+  bodyContainer: {
+    padding: 20
+  },
+  headerText: {
+    fontSize: 20
+  }
+
 })
 
 export default AccountScreen

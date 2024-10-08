@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Text, StyleSheet, View } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
-import TabNavigator from '../hook/TabNavigator';  // Your tab navigator component
+import TabNavigator from '../hook/TabNavigator';  
 
 
 
@@ -21,7 +21,7 @@ function TutorCard() {
         Government & Physics Teacher
       </Text>
 
-      {/* Render the TabNavigator component */}
+      
       <TabNavigator />
       
     </View>

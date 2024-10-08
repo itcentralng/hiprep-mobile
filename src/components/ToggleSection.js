@@ -49,11 +49,11 @@ const styles = StyleSheet.create({
     height: 20,
     borderRadius: 50,
     borderWidth: 2,
-    borderColor: '#D3D3D3', // Inactive color
+    borderColor: '#D3D3D3', 
     marginBottom: 5,
   },
   activeCircle: {
-    borderColor: '#0E6883', // Active color (same as in the screenshot)
+    borderColor: '#0E6883', 
   },
   text: {
     fontSize: 10,

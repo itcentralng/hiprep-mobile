@@ -16,33 +16,42 @@ function TutorProfileScreen() {
             <ButtonSmall title="I'd prefer to pick myself" />
         </View>
       </View>
-            <TutorCard />
+      <View style={styles.tutorCardContainer}>
+        <TutorCard />
+      </View>
       </ScrollView>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        width: "100%",
-        flex: 1,
-        alignItems: "center",
-    },
-    buttonContainer: {
-        width: "100%",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        paddingVertical: 10,
-        paddingHorizontal: 20
-    },
-    buttonContainerWrapper: {
-        display: "flex",
+  container: {
+    width: "100%",
+    flex: 1,
     alignItems: "center",
-    backgroundColor: '#FFF7FA',
-    height: 156
-    }
+},
+buttonContainer: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 10,
+    paddingHorizontal: 20
+},
+buttonContainerWrapper: {
+    display: "flex",
+alignItems: "center",
+backgroundColor: '#FFF7FA',
+height: 156
+},
+tutorCardContainer: {
+  width: "100%",
+  display: "flex",
+  flex: 1,
+  alignItems: "center",
+  justifyContent: "center",
+}
 })
 
 export default TutorProfileScreen

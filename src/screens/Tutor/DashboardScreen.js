@@ -18,7 +18,6 @@ function DashboardScreen() {
           <Text style={[styles.greetingsHeader, {fontFamily: theme.fonts.bold}]}>Hi, James Curtis 👋🏻</Text>
           <Text style={[styles.greetingsText, {fontFamily: theme.fonts.regular, color: theme.colors.secondary}]}>Good to see you back</Text>
         </View>
-        <SecondaryButton title="Copy booking link" />
       </View>
       <View style={styles.smallCards}>
 
@@ -27,35 +26,34 @@ function DashboardScreen() {
         <MaterialIcons name="money" size={18} color={theme.colors.primary} />
         </View>
         <View style={styles.cardTexts}>
-          <Text style={[styles.cardHeader, {fontFamily: theme.fonts.regular, color: theme.colors.secondary}]}>Total Revenue...</Text>
-          <Text style={[styles.cardQuantity, {fontFamily: theme.fonts.bold}]}>3,480,...</Text>
+          <Text style={[styles.cardHeader, {fontFamily: theme.fonts.regular, color: theme.colors.secondary}]}>No. of Children</Text>
+          <Text style={[styles.cardQuantity, {fontFamily: theme.fonts.bold}]}>3</Text>
         </View>
       </View>
 
       <View style={styles.smallCard}>
         <View style={styles.iconContainer}>
-        <MaterialIcons name="book" size={18} color={theme.colors.primary} />
+        <MaterialIcons name="book" size={18} color={theme.colors.brand} />
         </View>
         <View style={styles.cardTexts}>
           <Text style={[styles.cardHeader, {fontFamily: theme.fonts.regular, color: theme.colors.secondary}]}>Bookings</Text>
-          <Text style={[styles.cardQuantity, {fontFamily: theme.fonts.bold}]}>1,129</Text>
+          <Text style={[styles.cardQuantity, {fontFamily: theme.fonts.bold}]}>29</Text>
         </View>
       </View>
 
       <View style={styles.smallCard}>
         <View style={styles.iconContainer}>
-        <MaterialIcons name="person" size={18} color={theme.colors.primary} />
+        <MaterialIcons name="schedule" size={18} color={theme.colors.primary} />
         </View>
         <View style={styles.cardTexts}>
-          <Text style={[styles.cardHeader, {fontFamily: theme.fonts.regular, color: theme.colors.secondary}]}>No. Students</Text>
-          <Text style={[styles.cardQuantity, {fontFamily: theme.fonts.bold}]}>29</Text>
+          <Text style={[styles.cardHeader, {fontFamily: theme.fonts.regular, color: theme.colors.secondary}]}>Session in M...</Text>
+          <Text style={[styles.cardQuantity, {fontFamily: theme.fonts.bold}]}>1,129</Text>
         </View>
       </View>
 
       </View>
 
       <View style={styles.bigCards}>
-        <BigCard />
         <BigCard />
       </View>
       </ScrollView>

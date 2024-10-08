@@ -1,5 +1,3 @@
-// theme.js
-
 const lightTheme = {
     colors: {
       primary: '#0E6883',
@@ -11,7 +9,8 @@ const lightTheme = {
       borderColor: '#E0E0E0',
       brand: '#FC5C99',
       brandLight: '#FFF7FA',
-      secondaryLight: '#F5F7FA'
+      secondaryLight: '#F5F7FA',
+      errorColor: "#F34141"
     },
     spacing: {
       small: 8,
@@ -32,7 +31,8 @@ const lightTheme = {
       buttonBackground: '#BB86FC',
       buttonText: '#000000',
       borderColor: '#303030',
-      brand: '#FC5C99'
+      brand: '#FC5C99',
+      error: "#F34141"
     },
     spacing: {
       small: 8,

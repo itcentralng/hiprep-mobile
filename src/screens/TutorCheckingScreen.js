@@ -1,11 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Image, StyleSheet, Text, View } from 'react-native';
 import Navbar from '../components/Navbar';
-import { useTheme } from '../theme/ThemeProvider'; // Import the useTheme hook
+import { useTheme } from '../theme/ThemeProvider';
+import { MaterialIcons } from '@expo/vector-icons';
 
 function TutorCheckingScreen() {
   const { theme } = useTheme();
   const rotateAnim = useRef(new Animated.Value(0)).current; // Create a reference for the animated value
+
+  const [loadingStep, setLoadingStep] = useState(1); // State to track which step we're on
 
   // Create the rotation animation
   useEffect(() => {
@@ -24,6 +27,16 @@ function TutorCheckingScreen() {
     outputRange: ['0deg', '360deg'], // Rotate from 0 to 360 degrees
   });
 
+  // Handle the timing for loading steps
+  useEffect(() => {
+    const timeout1 = setTimeout(() => setLoadingStep(2), 2000); // After 2 seconds, move to "Searching our tutor’s directory"
+    const timeout2 = setTimeout(() => setLoadingStep(3), 4000); // After 4 seconds, complete the process
+    return () => {
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+    };
+  }, []);
+
   return (
     <View style={styles.container}>
       <Navbar />
@@ -38,14 +51,26 @@ function TutorCheckingScreen() {
           <Text style={[styles.text1, { fontFamily: theme.fonts.bold }]}>
             Checking children’s information
           </Text>
-          <Animated.Image
-            source={require('../../assets/Loader.png')}
-            style={[styles.loader, { transform: [{ rotate }] }]} // Apply the rotation animation
-          />
+          {loadingStep === 1 ? (
+            <Animated.Image
+              source={require('../../assets/Loader.png')}
+              style={[styles.loader, { transform: [{ rotate }] }]} // Apply the rotation animation
+            />
+          ) : (
+            <MaterialIcons name="check" size={18} color={theme.colors.primary} />
+          )}
         </View>
-        <Text style={[styles.text2, { fontFamily: theme.fonts.regular }]}>
-          Searching our tutor’s directory
-        </Text>
+        <View style={styles.text2Container}>
+          <Text style={[styles.text2, { fontFamily: theme.fonts.regular }]}>
+            Searching our tutor’s directory
+          </Text>
+          {loadingStep === 2 && (
+            <Animated.Image
+              source={require('../../assets/Loader.png')}
+              style={[styles.loader, { transform: [{ rotate }] }]} // Apply the rotation animation
+            />
+          )}
+        </View>
         <Text style={[styles.text2, { fontFamily: theme.fonts.regular }]}>
           Pairing you with recommended tutors
         </Text>
@@ -79,10 +104,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  text2Container: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   text1: {
     fontSize: 16,
   },
   loader: {
+    marginLeft: 5,
+    width: 24, // Adjust size as necessary
+    height: 24, // Adjust size as necessary
+  },
+  checkIcon: {
     marginLeft: 5,
     width: 24, // Adjust size as necessary
     height: 24, // Adjust size as necessary

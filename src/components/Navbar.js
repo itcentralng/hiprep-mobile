@@ -5,12 +5,12 @@ function Navbar() {
   return (
     <View style={styles.navbarContainer}>
       <Image
-        source={require('../../assets/logo.png')} // Replace with the path to your logo
+        source={require('../../assets/1.svg')} 
         style={styles.logo}
       />
       <TouchableOpacity>
         <Image
-          source={require('../../assets/menu.png')} // Replace with the path to your hamburger icon
+          source={require('../../assets/menu.png')} 
           style={styles.hamburgerIcon}
         />
       </TouchableOpacity>

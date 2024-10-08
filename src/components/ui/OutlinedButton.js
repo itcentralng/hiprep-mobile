@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { useTheme } from '../../theme/ThemeProvider'; // Import the useTheme hook
+import { useTheme } from '../../theme/ThemeProvider'; 
 
 
 function OutlinedButton({title}) {
